@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-
- gem 'record_tag_helper', '~> 1.0'
+gem 'impressionist'
+gem 'record_tag_helper', '~> 1.0'
 gem 'devise', '~> 4.5'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'rails', '~> 5.2.1'
