@@ -14,6 +14,10 @@
  <%= @post.created_at.strftime("%B %d %Y, %l:%M%P") %>
 </p>
 <p>
+  <strong>Views:</strong>
+  <%= @post.impressionist_count %>
+  </p>
+<p>
  By <%= @post.user.email %>
 </p>
 <%= simple_form_for [@post, Comment.new]  do |f| %>
