@@ -16,6 +16,12 @@ gem 'jbuilder', '~> 2.5'
 gem 'awesome_print'
 gem 'simple_form'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'rails_admin_rollincode', '~> 1.0'
+gem 'rails_admin', git: 'https://github.com/sferik/rails_admin.git'
+
+
+
+# gem 'rails_admin_rollincode', '~> 1.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -27,6 +33,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+   gem "rails-erd"
 end
 
 group :production do

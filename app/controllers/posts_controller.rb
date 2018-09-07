@@ -7,6 +7,8 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+       # @per_page = params[:per_page] || Question.per_page || 5
+    @posts=Post.where("title LIKE ?","%#{params[:search]}%")
   end
 
   # GET /posts/1
