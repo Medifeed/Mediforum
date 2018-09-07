@@ -7,8 +7,11 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    @per_page = params[:per_page] || Post.per_page || 5
+    @posts=Post.where("title LIKE ?","%#{params[:search]}%").paginate(:page => params[:page], :per_page => @per_page).order(created_at: :desc)
+   
        # @per_page = params[:per_page] || Question.per_page || 5
-    @posts=Post.where("title LIKE ?","%#{params[:search]}%")
+    # @posts=Post.where("title LIKE ?","%#{params[:search]}%")
   end
 
   # GET /posts/1
@@ -56,6 +59,17 @@ class PostsController < ApplicationController
     end
   end
 
+ def upvote
+    @post=Post.find(params[:id])
+    @post.upvote_by current_user
+    redirect_to posts_path
+  end
+
+  def downvote
+    @post=Post.find(params[:id])
+    @post.downvote_by current_user
+    redirect_to posts_path
+  end
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
@@ -71,6 +85,8 @@ class PostsController < ApplicationController
     def set_post
       @post = Post.find(params[:id])
     end
+
+     
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
