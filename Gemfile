@@ -6,7 +6,6 @@ gem 'record_tag_helper', '~> 1.0'
 gem 'devise', '~> 4.5'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'rails', '~> 5.2.1'
-# gem 'sqlite3'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -17,11 +16,17 @@ gem 'awesome_print'
 gem 'simple_form'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rails_admin_rollincode', '~> 1.0'
+gem'language_filter'
+gem "font-awesome-rails"
+
 gem 'rails_admin', git: 'https://github.com/sferik/rails_admin.git'
+# gem 'will_paginate', '~> 3.0'
+gem 'acts_as_votable', '~>  0.11.1'
+gem 'bootstrap-will_paginate'
 
 
 
-# gem 'rails_admin_rollincode', '~> 1.0'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
