@@ -1,6 +1,25 @@
-<%= div_for(comment) do %>
-            <%= comment.body%>
+<div class="container">
+    <%= div_for(comment) do %>
+        <div style="height:150px;width: 1000px;box-shadow: 0 0 2px 0px grey;margin-top:20px ">
+            <div style="height:70px;background-color:rgba(0,0,0,0.3);margin: 0;padding:0,width: 100%">
+                <div style="padding-left: 30px;
+">
+                    <%= comment.user.name%> on
+                        <%= comment.created_at.strftime("%B %d %Y, %l:%M%P") %>
+                </div>
+            </div>
+            <div style="padding-left: 30px;
+">
+                <%= comment.body%>
+                </div>
+                            <div style="padding-left: 780px;">
+
+                    <% if comment.user == current_user %>
+                        <%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-danger" %>
+                            <%= link_to 'Edit',edit_comment_path(comment), class: "btn btn-primary"%>
+                            </div>
+                                <% end %>
             </br>
-            Submitted by
-            <%= comment.user.email%>
-  <%end%>
+            <%end%>
+        </div>
+        

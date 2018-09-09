@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+    mount Bootsy::Engine => '/bootsy', as: 'bootsy'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 	  resources :posts
+
 
 
 

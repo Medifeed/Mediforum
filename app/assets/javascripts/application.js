@@ -11,8 +11,19 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery
+//= require jquery_ujs
 //= require activestorage
 //= require turbolinks
 //= require bootstrap
+//= require bootstrap-sprockets
 //= require_tree .
+//= require bootstrap-wysihtml5
+
+$(document).ready(function(){
+    $('.wysihtml5').each(function(i, elem) {
+        $(elem).wysihtml5();
+    });
+
+
 

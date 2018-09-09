@@ -18,11 +18,12 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rails_admin_rollincode', '~> 1.0'
 gem'language_filter'
 gem "font-awesome-rails"
-
+gem 'bootsy'
 gem 'rails_admin', git: 'https://github.com/sferik/rails_admin.git'
-# gem 'will_paginate', '~> 3.0'
 gem 'acts_as_votable', '~>  0.11.1'
 gem 'bootstrap-will_paginate'
+gem 'bootstrap-wysihtml5-rails'
+gem 'trix'
 
 
 

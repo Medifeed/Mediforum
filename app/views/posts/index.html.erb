@@ -5,6 +5,9 @@
 <% if @posts.blank? %>
     <h4>There are no posts containing the term <%= params[:search] %></h4>
     <% end %>
+
+
+                    <%= link_to 'Ask Question', new_post_path,class:"btn btn-primary" %>
         <div class="col-md-5 col-md-6">
             Show
             <%= select_tag :per_page, options_for_select([10,20,50], params[:per_page].to_i),
@@ -55,8 +58,11 @@
                             <td>
                                 <%= time_ago_in_words(post.created_at)%> ago </td>
                         </td>
-                        <td>
+                       
                             <%end%>
             </tbody>
+            </table>
+            <center>
             <%= will_paginate(@posts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+            </center>
                 <%= link_to 'New Post', new_post_path %>

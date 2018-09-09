@@ -1,6 +1,8 @@
 class Post < ApplicationRecord
 	belongs_to :user
 	has_many :comments
+	  include Bootsy::Container
+
 	 is_impressionable
 	 acts_as_votable
 validate :bad_words,:bad_title

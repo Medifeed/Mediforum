@@ -1,35 +1,32 @@
 <p id="notice"><%= notice %></p>
-<center>
+<h1>
+ <i class="fa fa-question-circle" aria-hidden="true"></i>
+ <%= @post.title %>
+</h1>
 <p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
-
-<p>
- <%= @post.created_at.strftime("%B %d %Y, %l:%M%P") %>
+Asked on <b><%= @post.created_at.strftime("%B %d %Y, %l:%M%P") %></b> By <b><%= @post.user.name %></b> 
 </p>
 <p>
   <strong>Views:</strong>
   <%= @post.impressionist_count %>
   </p>
 <p>
- By <%= @post.user.email %>
+<%= @post.comments.count %> comments:
+ </p>
 </p>
+                
+                    <%= render :partial => @post.comments %>
+                       <div class="col-md-8">
+     </br>
 <%= simple_form_for [@post, Comment.new]  do |f| %>
         <div class="field">
-            <%= f.input :body%>
+            <%= f.input :body,label:"Comment"%>
             <%= f.submit "Add Comment", class: "btn btn-success" %>
         </div>
         <br>
             <% end %>
-                <%= @post.comments.count %> comments:
-                    <%= render :partial => @post.comments %>
+<%= link_to 'Back', posts_path,class:"btn btn-success"%>
+</div>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
-</center>
+
+
