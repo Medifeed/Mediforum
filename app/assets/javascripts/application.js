@@ -17,13 +17,9 @@
 //= require turbolinks
 //= require bootstrap
 //= require bootstrap-sprockets
+//= require select2
+//= require bootstrap-tagsinput
 //= require_tree .
-//= require bootstrap-wysihtml5
-
-$(document).ready(function(){
-    $('.wysihtml5').each(function(i, elem) {
-        $(elem).wysihtml5();
-    });
 
 
 

@@ -1,11 +1,17 @@
 <p id="notice"><%= notice %></p>
 <h1>
  <i class="fa fa-question-circle" aria-hidden="true"></i>
+ <div class="a" style:"width:50%;">
  <%= @post.title %>
+ </div>
 </h1>
 <p>
 Asked on <b><%= @post.created_at.strftime("%B %d %Y, %l:%M%P") %></b> By <b><%= @post.user.name %></b> 
 </p>
+ <% if @post.user == current_user %>
+                        <%= link_to 'Delete',@post, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-danger" %>
+                            <%= link_to 'Edit',edit_post_path(@post), class: "btn btn-primary"%>
+                            <%end%>
 <p>
   <strong>Views:</strong>
   <%= @post.impressionist_count %>
@@ -29,4 +35,14 @@ Asked on <b><%= @post.created_at.strftime("%B %d %Y, %l:%M%P") %></b> By <b><%= 
 </div>
 
 
-
+<style>
+div.a {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width:50%;
+}
+div.a:hover {
+    overflow: visible;
+}
+</style>

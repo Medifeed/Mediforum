@@ -6,17 +6,23 @@
     <h4>There are no posts containing the term <%= params[:search] %></h4>
     <% end %>
 
-
-                    <%= link_to 'Ask Question', new_post_path,class:"btn btn-primary" %>
+<div class="form-group">
+        <%= form_tag(posts_path, :method => "get", id: "search-form") do %>
+                <%= text_field_tag :search, params[:search],class:"search" %>
+                                <%end%>
+        </div>
+        <div style="margin-left:990px">
+                    <%= link_to 'Ask Question', new_post_path,class:"btn btn-primary"%>
+                    </div>
         <div class="col-md-5 col-md-6">
             Show
             <%= select_tag :per_page, options_for_select([10,20,50], params[:per_page].to_i),
-       :onchange => "if(this.value){window.location='?per_page='+this.value;}"%>entries
+       :onchange => "if(this.value){window.location='?per_page='+this.value;}"%> entries
         </div>
-        <table class="col md 8 table table-hover " style="margin-top:20px">
+        <table class="col md 8 table table-hover" style="margin-top:20px">
             <thead class="thead-dark">
                 <tr>
-                    <th style="width: 50.66%;height: 40px">Topics</th>
+                <th style="width: 50.66%;height: 40px">Topics</th>
                     <th>Votes</th>
                     <th>Submitted by</th>
                     <th>Replies</th>
@@ -25,12 +31,14 @@
                 </tr>
             </thead>
             <tbody>
+             <tr>
                 <% @posts.each do |post| %>
-                    <tr>
                         <td>
                             <%= link_to post.title, post %>
                                 </br>
-                        </td> 
+                                    <%= render post.tags %>
+                                                     </td> 
+
                         <td>
                             <div class="btn-group">
                                 <%= link_to like_post_path(post), method: :put, class: "btn btn-default btn-sm" do %>
@@ -46,6 +54,7 @@
                             </div>
                             </div>
                             </td>
+
                             <td>
                                 <%=link_to post.user.name,profile_path(post.user)%>
                             </td>
@@ -58,11 +67,20 @@
                             <td>
                                 <%= time_ago_in_words(post.created_at)%> ago </td>
                         </td>
-                       
+                       </tr>
                             <%end%>
             </tbody>
             </table>
             <center>
             <%= will_paginate(@posts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
             </center>
-                <%= link_to 'New Post', new_post_path %>
+                <style type="text/css">
+                     
+.thead-dark
+{
+    width:120px;  
+    white-space: nowrap; 
+    overflow: hidden;
+}
+</style>
+                

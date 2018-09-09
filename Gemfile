@@ -24,6 +24,11 @@ gem 'acts_as_votable', '~>  0.11.1'
 gem 'bootstrap-will_paginate'
 gem 'bootstrap-wysihtml5-rails'
 gem 'trix'
+gem 'acts-as-taggable-on'
+gem 'select2-rails'
+gem 'bootstrap-tagsinput-rails'
+
+
 
 
 

@@ -1,8 +1,18 @@
-<h3>Welcome <%= @user.email %> !!!</h3>
-<h4>The post created by you are : </h4>
+<h3>Welcome !!!</h3>
+<h4>The Question Asked by :<%= @user.name %>  </h4>
 
 <% @user_posts.each do |post| %>
-<%= link_to post.title, post_path(post) %>
+<table table table-hover " style="margin-top:20px">
+<tr>
+ <th style="width: 50.66%;height: 40px">Topics</th>
+  <th style="width: 50.66%;height: 40px">Descriptions</th>
+
+ </tr>
+ <tr>
+<td><%= link_to post.title, post_path(post) %></td>
+<td><%= post.description%></td>
+</tr>
+</table>
 
 
 

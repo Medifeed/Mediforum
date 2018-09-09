@@ -3,8 +3,11 @@ class Post < ApplicationRecord
 	has_many :comments
 	  include Bootsy::Container
 
+
 	 is_impressionable
 	 acts_as_votable
+	   acts_as_taggable_on :tags
+
 validate :bad_words,:bad_title
 
 def bad_words

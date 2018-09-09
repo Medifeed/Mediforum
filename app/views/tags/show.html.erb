@@ -1,0 +1,10 @@
+ <center>
+   <div class="col-md-12">
+<div style="height:auto;width: 450px;box-shadow: 0 0 2px 0px grey;margin-top:20px ">
+<h1>Tagged Name:<%= @tag.name %></h1>
+<div><h2>Related Questions : <%= render @posts %></h2></div>
+ </div>
+</div>
+ <%= link_to 'Back', posts_path,class: "btn btn-success "%>
+
+</center>

@@ -6,7 +6,10 @@
             <div class="form-inputs">
                 <%=f.input :title,placeholder: "How do I?.."%>
             </div>
-            
+            <div class="form-inputs">
+               <%= f.label :tag_list, "Tags (separated by commas)" %><br />
+              <%= f.input :tag_list, value: f.object.tag_list.to_s ,placeholder: "Tag question?..",input_html:{data:{role:'tagsinput'}} %>
+</div>
                 <div class="form-inputs">
                     <%=f.input :description,placeholder: "A Thing I need" %>
                 </div>

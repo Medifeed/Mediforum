@@ -5,8 +5,6 @@ Rails.application.routes.draw do
 	  resources :posts
 
 
-
-
  resources :comments do
   member do
     put "like", to: "commments#upvote"
@@ -21,6 +19,7 @@ resources :posts do
     end
   resources :comments
 end
+  resources :tags, only: [:index, :show]
 
   devise_for :users
   get '/users/:id', to: 'users#show', as: 'profile'
